@@ -65,9 +65,9 @@ def start_client(server_ip, server_port):
                 response_message = statusCodeToMessage(response)
                 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") 
                 print(f"[SERVER RESPONSE] {response} {response_message} TIME: {now}")
-                if response == "200 OK":
+                if response == "200":
                     login = True
-                elif response in ["401 Unauthorized", "409 Conflict"]:
+                elif response in ["401", "409"]:
                     login = False
             except socket.error as e:
                 print(f"Error receiving response: {e}")
