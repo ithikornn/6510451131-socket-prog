@@ -1,14 +1,14 @@
 statusCodeDict = {
-    "200 OK": "Login successful!",
-    "201 Created": "Sign-up successful!",
-    "202 Booked": "Booked successfully!",
-    "204 No Content": "Session ended successfully.",
-    "400 Bad Request": "Invalid command.",
-    "401 Unauthorized": "Invalid username or password.",
-    "409 Conflict": "Username already exists.",
-    "423 Already Booked": "This seat is booked.",
-    "500 Internal Server Error": "An error occurred.",
-    "502 Error": "Error reading seats file, using default seats."
+    "200": "Login successful!",
+    "201": "Sign-up successful!",
+    "202": "Booked successfully!",
+    "204": "Session ended successfully.",
+    "400": "Invalid command.",
+    "401": "Invalid username or password.",
+    "409": "Username already exists.",
+    "423": "This seat is booked.",
+    "500": "An error occurred.",
+    "502": "Error reading seats file, using default seats."
 }
 
 def statusCodeToMessage(status_code):

@@ -47,10 +47,17 @@ def start_client(server_ip, server_port):
                 hall.display_slots()
                 msg = input("Enter your seat (e.g., A1): ")
                 message = f"BOOK {msg} {username}"
+                if (msg == "3"):
+                    message = "DISCONNECT"
                 encrypted_message = encrypt_message(message)
                 client.send(encrypted_message)
                 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") 
                 print(f"[SEND] {now}")
+
+                if msg == "3":
+                    connected = False
+                    print("Disconnecting from the server...")
+                    continue
 
             try:
                 encrypted_response = client.recv(1024)

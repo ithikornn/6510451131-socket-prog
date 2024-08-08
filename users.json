@@ -14,5 +14,17 @@
     {
         "username": "aofpx2",
         "password": "1234"
+    },
+    {
+        "username": "guest1",
+        "password": "12345"
+    },
+    {
+        "username": "guest",
+        "password": "12345"
+    },
+    {
+        "username": "6510451131",
+        "password": "tent"
     }
 ]

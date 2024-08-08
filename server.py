@@ -40,25 +40,25 @@ def handle_client(conn):
                 username, password = command[1], command[2]
                 user_found = any(user['username'] == username and user['password'] == password for user in users)
                 if user_found:
-                    response = "200 OK"
+                    response = "200"
                     hall.display_slots()
                     login_user.append(username)
                 else:
-                    response = "401 Unauthorized"
+                    response = "401"
             
             elif command[0] == "SIGNUP":
                 username, password = command[1], command[2]
                 if any(user['username'] == username for user in users):
-                    response = "409 Conflict"
+                    response = "409"
                 else:
                     users.append({'username': username, 'password': password})
                     save_users(users)
-                    response = "201 Created"
+                    response = "201"
             
             elif command[0] == "DISCONNECT":
                 if username in login_user:
                     login_user.remove(username)
-                response = "204 No Content"
+                response = "204"
                 conn.send(encrypt_message(response))
                 break
 
@@ -73,7 +73,7 @@ def handle_client(conn):
                     hall.display_slots() 
 
             else:
-                response = "400 Bad Request"
+                response = "400"
             
             print(f"[SERVER RESPONSE] {response}")
             conn.send(encrypt_message(response))

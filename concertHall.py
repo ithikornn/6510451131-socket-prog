@@ -21,11 +21,11 @@ class ConcertHall:
         if self.slot[row_idx][seat_idx] == "o":
             self.slot[row_idx][seat_idx] = "x"
             self.save_seats(username)
-            return "202 Booked"
+            return "202"
         elif self.slot[row_idx][seat_idx] == "x":
-            return "423 Already Booked"
+            return "423"
         else:
-            return "400 Bad Request"
+            return "400"
 
     def load_seats(self):
         try:
@@ -35,7 +35,7 @@ class ConcertHall:
                     row_idx, seat_idx = self._seat_to_indices(seat_name[0], int(seat_name[1:]))
                     self.slot[row_idx][seat_idx] = "o" if status is None else "x"
         except (FileNotFoundError, json.JSONDecodeError):
-            return "502 Error"
+            return "502"
 
     def save_seats(self, username):
         seats = {self._indices_to_seat(row_idx, seat_idx): (None if seat == "o" else username)
